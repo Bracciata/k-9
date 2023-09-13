@@ -8,6 +8,7 @@ class InMemoryFeatureFlagFactory : FeatureFlagFactory {
     override fun createFeatureCatalog(): List<FeatureFlag> {
         return listOf(
             FeatureFlag(FeatureFlagKey("new_onboarding"), true),
+            FeatureFlag(FeatureFlagKey("new_account_edit"), false),
         )
     }
 }
