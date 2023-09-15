@@ -9,11 +9,14 @@ import app.k9mail.core.ui.compose.common.activity.LocalActivity
 import app.k9mail.core.ui.compose.designsystem.atom.Background
 import app.k9mail.core.ui.compose.theme.K9Theme
 import app.k9mail.feature.launcher.navigation.FeatureLauncherNavHost
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.persistentMapOf
 
 @Composable
 fun FeatureLauncherApp(
     startDestination: String?,
     modifier: Modifier = Modifier,
+    startDestinationArguments: ImmutableMap<String, String> = persistentMapOf(),
 ) {
     val navController = rememberNavController()
 
@@ -29,6 +32,7 @@ fun FeatureLauncherApp(
             FeatureLauncherNavHost(
                 navController = navController,
                 startDestination = startDestination,
+                startDestinationArguments = startDestinationArguments,
                 onBack = { activity.finish() },
             )
         }
